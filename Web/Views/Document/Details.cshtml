@@ -1,0 +1,47 @@
+﻿@model Web.Models.DocumentViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+<div>
+    <h4>DocumentViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Titre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categorie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categorie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BibliothequeFK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BibliothequeFK)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

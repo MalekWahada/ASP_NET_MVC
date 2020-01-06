@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Web.Models.AuteurViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{<table>
+        <tr>
+            <td>
+                <div>
+                    recherche selon le Nom de l'auteur: @Html.TextBox("recherche")
+                </div>
+            </td>
+            <td> <input type="submit" value="Search" id="submit" /> </td>
+        </tr>
+    </table>}
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AuteurCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomComplet.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomComplet.Prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imageURL)
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuteurCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomComplet.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomComplet.Prenom)
+        </td>
+        <td>
+            @{string path = "~/Content/Upload/" + @item.imageURL;}
+
+            <img src="@Url.Content(path)" width="50" height="50" />
+        </td>
+
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+        }
+    }
+
+</table>

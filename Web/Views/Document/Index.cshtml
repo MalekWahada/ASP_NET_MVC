@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Web.Models.DocumentViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{<table>
+        <tr>
+            <td>
+                <div>
+                    recherche selon le Titre: @Html.TextBox("recherche")
+                </div>
+            </td>
+            <td> <input type="submit" value="Search" id="submit" /> </td>
+        </tr>
+    </table>}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categorie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BibliothequeFK)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categorie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BibliothequeFK)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+
+    }
+</table>

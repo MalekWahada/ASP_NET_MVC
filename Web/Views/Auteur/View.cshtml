@@ -1,0 +1,6 @@
+﻿@model Web.Models.AuteurViewModel
+@{string path = "~/Content/Upload/" + @Model.imageURL;}
+<div style="float:left; margin:5px;">
+    <img alt="Image" src="@Url.Content(path)" width="50" height="50" />
+</div>
+
